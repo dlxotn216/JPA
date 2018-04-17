@@ -1,9 +1,10 @@
-package me.strongwhisky;
+package me.strongwhisky.day01.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import me.strongwhisky.day01.model.User;
+import me.strongwhisky.day01.repository.UserRepository;
+import me.strongwhisky.day01.service.TransactionPersistTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -17,26 +18,29 @@ import java.util.stream.Collectors;
  */
 @Component
 @Slf4j
-public class TransactionalWriteBehindTest implements ApplicationRunner {
+public class TransactionalWriteBehindTest {
+
+    private final UserRepository userRepository;
+
+    private final EntityManagerFactory entityManagerFactory;
+
+    private final TransactionPersistTest persistTest;
 
     @Autowired
-    private UserRepository userRepository;
+    public TransactionalWriteBehindTest(UserRepository userRepository, EntityManagerFactory entityManagerFactory, TransactionPersistTest persistTest) {
+        this.userRepository = userRepository;
+        this.entityManagerFactory = entityManagerFactory;
+        this.persistTest = persistTest;
+    }
 
-    @Autowired
-    private EntityManagerFactory entityManagerFactory;
-
-    @Autowired
-    private TransactionPersistTest persistTest;
-
-    @Override
-    public void run(ApplicationArguments applicationArguments) throws Exception {
+    public void run() {
         JPATest();
         HibernateTest();
 
         persistTest.test();
     }
 
-    private void JPATest(){
+    private void JPATest() {
         User user = new User();
         user.setName("Lee Tae Su");
         user.setEmail("dlxotn@crcube.co.kr");
@@ -60,7 +64,7 @@ public class TransactionalWriteBehindTest implements ApplicationRunner {
         //tx3 끝 (영속성 컨텍스트3)
     }
 
-    private void HibernateTest(){
+    private void HibernateTest() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
@@ -72,19 +76,19 @@ public class TransactionalWriteBehindTest implements ApplicationRunner {
         entityManager.persist(user);        //ID will be 6
 
         //true
-        log.info("is Equal in EntityTransaction before commit :"+ (entityManager.find(User.class, 6L) == user));
+        log.info("is Equal in EntityTransaction before commit :" + (entityManager.find(User.class, 6L) == user));
         transaction.commit();
 
         //커밋후에도 true
         //커밋 된 entity는 1차 캐시(메모리)에 존재하므로
-        log.info("is Equal in EntityTransaction after commit :"+ (entityManager.find(User.class, 6L) == user));
+        log.info("is Equal in EntityTransaction after commit :" + (entityManager.find(User.class, 6L) == user));
 
         transaction = entityManager.getTransaction();
         transaction.begin();
         //변경사항이 알아서 감지 되어 commit 시 (flush 할때) 변경 쿼리가 날아감
         entityManager.find(User.class, 6L).setEmail("test@test.com");
         transaction.commit();
-        log.info("Change email -> "+(entityManager.find(User.class, 6L).getEmail()));
+        log.info("Change email -> " + (entityManager.find(User.class, 6L).getEmail()));
 
         transaction = entityManager.getTransaction();
         transaction.begin();

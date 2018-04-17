@@ -1,9 +1,9 @@
-package me.strongwhisky;
+package me.strongwhisky.day01.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import me.strongwhisky.day01.model.User;
+import me.strongwhisky.day01.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -14,14 +14,16 @@ import java.util.Date;
  */
 @Component
 @Slf4j
-public class DefaultDataPopulator implements ApplicationRunner {
+public class DefaultDataPopulator {
+
+    private final UserRepository userRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    public DefaultDataPopulator(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-    @Override
-    public void run(ApplicationArguments applicationArguments) throws Exception {
-
+    public void run() {
         log.info("find all method return null? " + (userRepository.findAll() == null));
 
         User user = new User();
@@ -48,8 +50,6 @@ public class DefaultDataPopulator implements ApplicationRunner {
 
         userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
-        userRepository.findAll().forEach(item -> {
-            log.info("[" + item.getId() + "] => " + item.getName() + "," + item.getEmail());
-        });
+        userRepository.findAll().forEach(item -> log.info("[" + item.getId() + "] => " + item.getName() + "," + item.getEmail()));
     }
 }

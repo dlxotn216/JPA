@@ -1,4 +1,4 @@
-package me.strongwhisky;
+package me.strongwhisky.day01.service;
 
 /**
  * Created by taesu on 2018-04-16.

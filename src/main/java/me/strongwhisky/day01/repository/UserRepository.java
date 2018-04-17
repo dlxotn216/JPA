@@ -1,7 +1,7 @@
-package me.strongwhisky;
+package me.strongwhisky.day01.repository;
 
+import me.strongwhisky.day01.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
 /**
  * Created by taesu on 2018-04-15.
