@@ -1,8 +1,8 @@
-package me.strongwhisky.day01.service.impl;
+package me.strongwhisky.app.day01.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import me.strongwhisky.day01.model.User;
-import me.strongwhisky.day01.repository.UserRepository;
+import me.strongwhisky.app.day01.model.User;
+import me.strongwhisky.app.day01.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

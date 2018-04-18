@@ -1,6 +1,6 @@
-package me.strongwhisky.day02.repository;
+package me.strongwhisky.app.day02.repository;
 
-import me.strongwhisky.day02.model.DirectAllocateIdentyUser;
+import me.strongwhisky.app.day02.model.DirectAllocateIdentyUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

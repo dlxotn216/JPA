@@ -1,4 +1,4 @@
-package me.strongwhisky.day01.model;
+package me.strongwhisky.app.day01.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.UniqueElements;

@@ -1,6 +1,6 @@
-package me.strongwhisky.day02;
+package me.strongwhisky.app.day02;
 
-import me.strongwhisky.day02.service.PrimaryKeyMappingStrategyTest;
+import me.strongwhisky.app.day02.service.PrimaryKeyMappingStrategyTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

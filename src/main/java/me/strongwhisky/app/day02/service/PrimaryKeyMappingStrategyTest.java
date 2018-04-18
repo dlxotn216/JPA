@@ -1,12 +1,12 @@
-package me.strongwhisky.day02.service;
+package me.strongwhisky.app.day02.service;
 
 import lombok.extern.slf4j.Slf4j;
-import me.strongwhisky.day02.model.DirectAllocateIdentyUser;
-import me.strongwhisky.day02.model.GeneratedValueUser;
-import me.strongwhisky.day02.model.UseSequenceUser;
-import me.strongwhisky.day02.repository.DirectAllocateIdentyUserRepository;
-import me.strongwhisky.day02.repository.GeneratedValueUserRepository;
-import me.strongwhisky.day02.repository.UseSequenceUserRepository;
+import me.strongwhisky.app.day02.model.GeneratedValueUser;
+import me.strongwhisky.app.day02.model.UseSequenceUser;
+import me.strongwhisky.app.day02.repository.DirectAllocateIdentyUserRepository;
+import me.strongwhisky.app.day02.repository.GeneratedValueUserRepository;
+import me.strongwhisky.app.day02.repository.UseSequenceUserRepository;
+import me.strongwhisky.app.day02.model.DirectAllocateIdentyUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

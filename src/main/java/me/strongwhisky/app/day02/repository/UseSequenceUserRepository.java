@@ -1,6 +1,6 @@
-package me.strongwhisky.day02.repository;
+package me.strongwhisky.app.day02.repository;
 
-import me.strongwhisky.day02.model.UseSequenceUser;
+import me.strongwhisky.app.day02.model.UseSequenceUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

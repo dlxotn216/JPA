@@ -1,7 +1,7 @@
-package me.strongwhisky.day01;
+package me.strongwhisky.app.day01;
 
-import me.strongwhisky.day01.service.impl.DefaultDataPopulator;
-import me.strongwhisky.day01.service.impl.TransactionalWriteBehindTest;
+import me.strongwhisky.app.day01.service.impl.DefaultDataPopulator;
+import me.strongwhisky.app.day01.service.impl.TransactionalWriteBehindTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
