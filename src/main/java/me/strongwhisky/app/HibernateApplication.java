@@ -1,14 +1,12 @@
 package me.strongwhisky.app;
 
-import me.strongwhisky.app.day03.Day03Runner;
+import me.strongwhisky.app.day04.Day04Runner;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(scanBasePackages = {"me.strongwhisky.app.day03"})
+@SpringBootApplication
 public class HibernateApplication {
 
     public static void main(String[] args) {
@@ -25,8 +23,13 @@ public class HibernateApplication {
 //        return (args) -> day02Runner.runDayApplication();
 //    }
 
+//    @Bean
+//    public ApplicationRunner day03ApplicationRunner(Day04Runner day03Runner) {
+//        return (args) -> day03Runner.runDayApplication();
+//    }
+
     @Bean
-    public ApplicationRunner day03ApplicationRunner(Day03Runner day03Runner) {
-        return (args) -> day03Runner.runDayApplication();
+    public ApplicationRunner day04ApplicationRunner(Day04Runner day04Runner) {
+        return (args) -> day04Runner.runDayApplication();
     }
 }
