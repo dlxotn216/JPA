@@ -27,7 +27,7 @@ public class Member {
     private String userName;
 
     /**
-     * 하나의 Team은 여러 Member를 가질 수 있으므로 ManaToOne
+     * 한 Member는 하나의 Team에만 할당 될 수 있으므로 ManyToOne
      * JoinColumn엔 Team의 @Id로 지정 된 컬럼의 이름을 적는다
      */
     @ManyToOne

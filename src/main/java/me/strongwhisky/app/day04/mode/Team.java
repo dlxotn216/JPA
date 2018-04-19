@@ -24,6 +24,9 @@ public class Team {
     @Column(name = "TEAM_NAME")
     private String teamName;
 
+    /**
+     * 하나의 팀은 여러 멤버를 가질 수 있으므로
+     */
     @OneToMany
     private List<Member> members;
 
