@@ -68,14 +68,16 @@ public class Test2Service {
         member1.setMemberName("OP[Owner]");
 
         member1.setTeam(team);          //연관관계 설정 member -> team
-        team.addMember(member1);        //연관관계 설정 team -> member
+        //team.addMember(member1);        //연관관계 설정 team -> member
+        //Member의 연관관계 편의 메소드를 통해 불필요 로직 제거 및 방어코드 개선
 
         Member member2 = new Member();
         member2.setMemberId("OP_test2");
         member2.setMemberName("OP[managere]");
 
         member2.setTeam(team);          //연관관계 설정 member -> team
-        team.addMember(member1);        //연관관계 설정 team -> member
+        //team.addMember(member1);        //연관관계 설정 team -> member
+        //Member의 연관관계 편의 메소드를 통해 불필요 로직 제거 및 방어코드 개선
 
         memberRepository.saveAll(Arrays.asList(member1, member2));
     }
