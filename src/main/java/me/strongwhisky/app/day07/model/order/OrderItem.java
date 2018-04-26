@@ -1,6 +1,8 @@
 package me.strongwhisky.app.day07.model.order;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import me.strongwhisky.app.day07.model.base.BaseEntity;
 import me.strongwhisky.app.day07.model.item.Item;
 
 import javax.persistence.*;
@@ -10,8 +12,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ORDER_ITEM")
-@Data
-public class OrderItem {
+@Getter
+@Setter
+public class OrderItem extends BaseEntity {
 
     @Id
     @Column(name = "ORDER_ITEM_ID")

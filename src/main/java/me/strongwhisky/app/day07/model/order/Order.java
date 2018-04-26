@@ -1,6 +1,8 @@
 package me.strongwhisky.app.day07.model.order;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import me.strongwhisky.app.day07.model.base.BaseEntity;
 import me.strongwhisky.app.day07.model.member.Member;
 
 import javax.persistence.*;
@@ -13,8 +15,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "ORDERS")
-@Data
-public class Order {
+@Getter
+@Setter
+public class Order extends BaseEntity {
 
     @Id
     @Column(name = "ORDER_ID")
@@ -40,14 +43,14 @@ public class Order {
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
-    public void setMember(Member member){
-        if(this.member != null){
+    public void setMember(Member member) {
+        if (this.member != null) {
             this.member.removeOrder(this);
         }
         this.member = member;
     }
 
-    public void setDelivery(Delivery delivery){
+    public void setDelivery(Delivery delivery) {
         this.delivery = delivery;
         this.delivery.setOrder(this);
     }

@@ -1,6 +1,8 @@
 package me.strongwhisky.app.day07.model.member;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import me.strongwhisky.app.day07.model.base.BaseEntity;
 import me.strongwhisky.app.day07.model.order.Order;
 
 import javax.persistence.*;
@@ -12,8 +14,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "MEMBER")
-@Data
-public class Member {
+@Getter
+@Setter
+public class Member extends BaseEntity {
 
     @Id
     @Column(name = "MEMBER_ID")
