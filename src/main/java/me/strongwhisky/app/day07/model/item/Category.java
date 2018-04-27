@@ -25,7 +25,7 @@ public class Category extends BaseEntity {
 
 //    private Long parentId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
     //이 컬럼을 통해서 Category 엔티티와 연관관계를 맺겠다 (즉, PARENT_ID 는 현재 엔티티의 외래키가 되며 참조 대상의 PK와 자동 매핑 된다)
     private Category parent;
