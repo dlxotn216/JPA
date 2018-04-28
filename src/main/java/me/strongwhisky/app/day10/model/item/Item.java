@@ -1,8 +1,8 @@
-package me.strongwhisky.app.day07.model.item;
+package me.strongwhisky.app.day10.model.item;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.day07.model.base.BaseEntity;
+import me.strongwhisky.app.day10.model.base.BaseEntity;
 
 import javax.persistence.*;
 import java.util.ArrayList;

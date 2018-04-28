@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day07;
+package me.strongwhisky.app.day10;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -10,11 +10,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class Runner implements ApplicationRunner {
 
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
     }
-
 
 }

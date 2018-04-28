@@ -1,7 +1,5 @@
-package me.strongwhisky.app.day07.model.item;
+package me.strongwhisky.app.day10.model.item;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 

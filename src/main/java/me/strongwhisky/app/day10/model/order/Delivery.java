@@ -1,8 +1,9 @@
-package me.strongwhisky.app.day07.model.order;
+package me.strongwhisky.app.day10.model.order;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.day07.model.base.BaseEntity;
+import me.strongwhisky.app.day10.model.base.BaseEntity;
+import me.strongwhisky.app.valuetype.Address;
 
 import javax.persistence.*;
 
@@ -21,11 +22,8 @@ public class Delivery extends BaseEntity {
     @SequenceGenerator(name = "DELIVERY_SEQ")
     private Long deliveryId;
 
-    private String city;
-
-    private String street;
-
-    private String zipcode;
+    @Embedded
+    private Address address;
 
     @Enumerated(value = EnumType.STRING)
     private DeliveryStatus status;

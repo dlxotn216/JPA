@@ -1,9 +1,10 @@
-package me.strongwhisky.app.day07.model.member;
+package me.strongwhisky.app.day10.model.member;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.day07.model.base.BaseEntity;
-import me.strongwhisky.app.day07.model.order.Order;
+import me.strongwhisky.app.day10.model.base.BaseEntity;
+import me.strongwhisky.app.day10.model.order.Order;
+import me.strongwhisky.app.valuetype.Address;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class Member extends BaseEntity {
     @Column(name = "MEMBER_ID")
     private String memberId;
     private String name;
-    private String city;
-    private String street;
-    private String zipcode;
+
+    @Embedded
+    private Address address;
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();

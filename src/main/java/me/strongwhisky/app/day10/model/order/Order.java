@@ -1,9 +1,9 @@
-package me.strongwhisky.app.day07.model.order;
+package me.strongwhisky.app.day10.model.order;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.day07.model.base.BaseEntity;
-import me.strongwhisky.app.day07.model.member.Member;
+import me.strongwhisky.app.day10.model.base.BaseEntity;
+import me.strongwhisky.app.day10.model.member.Member;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
