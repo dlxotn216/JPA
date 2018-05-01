@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day10.model.base;
+package me.strongwhisky.app.day11.model.base;
 
 import lombok.Getter;
 import lombok.Setter;

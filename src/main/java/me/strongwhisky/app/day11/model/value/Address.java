@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day10.model.value;
+package me.strongwhisky.app.day11.model.value;
 
 import lombok.Builder;
 import lombok.Getter;

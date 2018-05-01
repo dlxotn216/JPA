@@ -1,10 +1,10 @@
-package me.strongwhisky.app.day10.model.member;
+package me.strongwhisky.app.day11.model.member;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.day10.model.base.BaseEntity;
-import me.strongwhisky.app.day10.model.order.Order;
-import me.strongwhisky.app.valuetype.Address;
+import me.strongwhisky.app.day11.model.base.BaseEntity;
+import me.strongwhisky.app.day11.model.order.Order;
+import me.strongwhisky.app.day11.model.value.Address;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by taesu on 2018-04-25.
  */
-@Entity
+@Entity(name = "Member")
 @Table(name = "MEMBER")
 @Getter
 @Setter

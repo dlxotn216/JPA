@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day10.model.order;
+package me.strongwhisky.app.day11.model.order;
 
 /**
  * Created by taesu on 2018-04-25.

@@ -1,9 +1,9 @@
-package me.strongwhisky.app.day10.model.order;
+package me.strongwhisky.app.day11.model.order;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.day10.model.base.BaseEntity;
-import me.strongwhisky.app.valuetype.Address;
+import me.strongwhisky.app.day11.model.base.BaseEntity;
+import me.strongwhisky.app.day11.model.value.Address;
 
 import javax.persistence.*;
 
