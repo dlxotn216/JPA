@@ -1,4 +1,4 @@
-package me.strongwhisky.app.jpql;
+package me.strongwhisky.app.querydsl;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,19 +8,19 @@ import javax.persistence.*;
 /**
  * Created by taesu on 2018-05-01.
  */
-@Entity(name = "TestMember")
-@Getter
+@Entity
 @Setter
-@Table(name = "TEST_MEMBER")
+@Getter
+@Table
 public class TestMember {
     @Id
-    private String userId;
+    private String memberId;
 
-    private String username;
+    private String name;
 
     private int age;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "TEAM_ID")
     private TestTeam team;
 }
