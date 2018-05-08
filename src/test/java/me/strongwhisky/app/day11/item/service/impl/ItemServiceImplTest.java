@@ -1,14 +1,13 @@
 package me.strongwhisky.app.day11.item.service.impl;
 
-import me.strongwhisky.app.day11.item.model.Album;
-import me.strongwhisky.app.day11.item.model.Book;
-import me.strongwhisky.app.day11.item.model.Movie;
-import me.strongwhisky.app.day11.item.service.ItemService;
+import me.strongwhisky.app.item.domain.Album;
+import me.strongwhisky.app.item.domain.Book;
+import me.strongwhisky.app.item.domain.Movie;
+import me.strongwhisky.app.item.service.ItemService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 

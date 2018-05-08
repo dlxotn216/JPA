@@ -1,8 +1,8 @@
 package me.strongwhisky.app.day11.member.service.impl;
 
-import me.strongwhisky.app.day11.member.exception.DuplicatedMemberIdException;
-import me.strongwhisky.app.day11.member.model.Member;
-import me.strongwhisky.app.day11.member.service.MemberService;
+import me.strongwhisky.app.member.exception.DuplicatedMemberIdException;
+import me.strongwhisky.app.member.domain.Member;
+import me.strongwhisky.app.member.service.MemberService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

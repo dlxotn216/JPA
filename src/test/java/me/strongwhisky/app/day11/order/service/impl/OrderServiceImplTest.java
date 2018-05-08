@@ -1,14 +1,14 @@
 package me.strongwhisky.app.day11.order.service.impl;
 
-import me.strongwhisky.app.day11.item.exception.NotEnoughStockException;
-import me.strongwhisky.app.day11.item.model.Book;
-import me.strongwhisky.app.day11.item.model.Item;
-import me.strongwhisky.app.day11.item.service.ItemService;
-import me.strongwhisky.app.day11.member.model.Member;
-import me.strongwhisky.app.day11.member.service.MemberService;
-import me.strongwhisky.app.day11.order.model.Order;
-import me.strongwhisky.app.day11.order.model.OrderStatus;
-import me.strongwhisky.app.day11.order.service.OrderService;
+import me.strongwhisky.app.item.exception.NotEnoughStockException;
+import me.strongwhisky.app.item.domain.Book;
+import me.strongwhisky.app.item.domain.Item;
+import me.strongwhisky.app.item.service.ItemService;
+import me.strongwhisky.app.member.domain.Member;
+import me.strongwhisky.app.member.service.MemberService;
+import me.strongwhisky.app.order.domain.Order;
+import me.strongwhisky.app.order.domain.OrderStatus;
+import me.strongwhisky.app.order.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
