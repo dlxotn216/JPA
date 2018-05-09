@@ -36,9 +36,9 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeRepository.save(notice);
 		noticeRepository.save(notice2);
 		noticeRepository.save(notice1);
-//		if(noticeRepository.save(notice1) != null){
-//			throw new RuntimeException("예외 발생");
-//		}
+		if(noticeRepository.save(notice1) != null){
+			throw new RuntimeException("예외 발생");
+		}
 	}
     
     @Transactional
