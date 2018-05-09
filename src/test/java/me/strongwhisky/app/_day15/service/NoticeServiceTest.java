@@ -1,14 +1,13 @@
-package me.strongwhisky.app._day14.service;
+package me.strongwhisky.app._day15.service;
 
-import me.strongwhisky.app._day14.domain.Notice;
-import me.strongwhisky.app._day14.repository.NoticeHistoryRepository;
+import me.strongwhisky.app._day15.domain.Notice;
+import me.strongwhisky.app._day15.repository.NoticeHistoryRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,8 +1,7 @@
-package me.strongwhisky.app._day14.domain;
+package me.strongwhisky.app._day15.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.strongwhisky.app.common.domain.BaseEntity;
 
 import javax.persistence.*;
 
