@@ -1,6 +1,6 @@
-package me.strongwhisky.app._day16.service;
+package me.strongwhisky.app._day17.service;
 
-import me.strongwhisky.app._day16.domain.Notice;
+import me.strongwhisky.app._day17.domain.Notice;
 
 /**
  * Created by taesu on 2018-05-08.

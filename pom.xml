@@ -25,6 +25,17 @@
 		<querydsl.version>3.7.4</querydsl.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>spring-libs-release</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/libs-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,6 +55,10 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-java8</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-envers</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

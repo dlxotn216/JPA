@@ -2,6 +2,7 @@ package me.strongwhisky.app.common.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -17,6 +18,7 @@ import java.time.ZonedDateTime;
  */
 @Getter
 @Setter
+@Audited
 @MappedSuperclass
 public abstract class BaseEntity {
 
