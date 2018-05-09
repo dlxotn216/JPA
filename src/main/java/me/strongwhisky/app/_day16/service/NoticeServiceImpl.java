@@ -1,7 +1,7 @@
-package me.strongwhisky.app._day15.service;
+package me.strongwhisky.app._day16.service;
 
-import me.strongwhisky.app._day15.domain.Notice;
-import me.strongwhisky.app._day15.repository.NoticeRepository;
+import me.strongwhisky.app._day16.domain.Notice;
+import me.strongwhisky.app._day16.repository.NoticeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

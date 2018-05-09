@@ -1,7 +1,7 @@
-package me.strongwhisky.app._day15;
+package me.strongwhisky.app._day16;
 
-import me.strongwhisky.app._day15.repository.NoticeHistoryRepository;
-import me.strongwhisky.app._day15.service.NoticeService;
+import me.strongwhisky.app._day16.repository.NoticeHistoryRepository;
+import me.strongwhisky.app._day16.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,11 +20,11 @@ public class DayRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-    	try {
-			noticeService.testNotice();
-		}catch (Exception e){
-    		
-		}
+//    	try {
+//			noticeService.testNotice();
+//		}catch (Exception e){
+//
+//		}
 //        Notice notice = new Notice();
 //        notice.setTitle("테ㅡ트");
 //        notice.setContent("내용이빈당");

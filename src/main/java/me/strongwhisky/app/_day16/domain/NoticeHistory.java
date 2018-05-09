@@ -1,11 +1,10 @@
-package me.strongwhisky.app._day15.domain;
+package me.strongwhisky.app._day16.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.util.ObjectUtils;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by taesu on 2018-05-08.
@@ -17,6 +16,10 @@ import javax.persistence.Table;
 public class NoticeHistory extends AbstractNotice {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NoticeHistorySeqGenerator")
+    @SequenceGenerator(name = "NoticeHistorySeqGenerator", sequenceName = "NOTICE_HIS_SEQ")
+    private Long noticeHistoryKey;
+
     private Long noticeKey;
 
     private NoticeHistory() {
@@ -36,5 +39,17 @@ public class NoticeHistory extends AbstractNotice {
         return "NoticeHistory{" +
                 "noticeKey=" + noticeKey +
                 "} " + super.toString();
+    }
+
+    public boolean equalsForAudit(NoticeHistory noticeHistory){
+        if(!ObjectUtils.nullSafeEquals(super.getTitle(), noticeHistory.getTitle())){
+            return false;
+        }
+
+        if(!ObjectUtils.nullSafeEquals(super.getContent(), noticeHistory.getContent())){
+            return false;
+        }
+
+        return true;
     }
 }

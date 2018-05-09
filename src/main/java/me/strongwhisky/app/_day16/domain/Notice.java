@@ -1,4 +1,4 @@
-package me.strongwhisky.app._day15.domain;
+package me.strongwhisky.app._day16.domain;
 
 import lombok.Getter;
 import lombok.Setter;

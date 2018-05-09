@@ -1,6 +1,6 @@
-package me.strongwhisky.app._day15.repository;
+package me.strongwhisky.app._day16.repository;
 
-import me.strongwhisky.app._day15.domain.Notice;
+import me.strongwhisky.app._day16.domain.Notice;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

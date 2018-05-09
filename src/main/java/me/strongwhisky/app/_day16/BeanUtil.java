@@ -1,4 +1,4 @@
-package me.strongwhisky.app._day15;
+package me.strongwhisky.app._day16;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
