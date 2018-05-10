@@ -1,8 +1,10 @@
 package me.strongwhisky.app._day18;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +20,17 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
+
     @GetMapping(value = "/todos")
-    public ResponseEntity<Page<Todo>> getPagedTodos(Pageable pageable){
-        return ResponseEntity.ok(todoService.findAll(pageable));
+    public ResponseEntity<Page<Todo>> getPagedTodos(
+            //Pageable의 기본 값을 변경 할 경우
+            @PageableDefault(page = 0, size = 10)
+            //다중 페이징 옵션을 받아야 할 때
+            //todo_page=0&todo_size=20 ...
+            @Qualifier("todo") Pageable todoPageable,
+            //member_page=0&member_size=20 ...
+            @Qualifier("member") Pageable memberPageable){
+        return ResponseEntity.ok(todoService.findAll(todoPageable));
     }
 
     //todoKey에 대한 매핑은 자동으로 이뤄진다
