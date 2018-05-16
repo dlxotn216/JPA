@@ -1,5 +1,7 @@
 package me.strongwhisky.app._day19;
 
+import org.springframework.util.ObjectUtils;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
@@ -17,11 +19,11 @@ public class BooleanConverter implements AttributeConverter<Boolean, String> {
 
     @Override
     public String convertToDatabaseColumn(Boolean attribute) {
-        return attribute.equals(true) ? definedTrue : definedFalse;
+        return ObjectUtils.nullSafeEquals(attribute, true)? definedTrue : definedFalse;
     }
 
     @Override
     public Boolean convertToEntityAttribute(String dbData) {
-        return dbData.equals(definedTrue);
+        return ObjectUtils.nullSafeEquals(dbData, definedTrue);
     }
 }

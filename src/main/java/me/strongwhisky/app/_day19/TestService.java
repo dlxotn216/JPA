@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+
 /**
  * Created by taesu on 2018-05-16.
  */
@@ -35,6 +37,37 @@ public class TestService {
         print();
 
         boardRepository.delete(board);
+        print();
+
+        logictest();
+    }
+    private void logictest(){
+        Board board = new Board();
+        board.setTitle("test board111");
+        board.setContent("test  aefaefaf1111111");
+        board.setSecret(true);              //비공개용
+
+        Comment comment = new Comment();
+        comment.setComment("111111111111");
+        comment.setSeqNo(0);
+
+        board.addComment(comment);
+        board.addComment(comment);
+
+
+        Comment comment1 = new Comment();
+        comment1.setComment("222222222222222");
+        comment1.setSeqNo(0);
+
+        board.addComment(comment1);
+
+        Board board1 = new Board();
+        board1.setTitle("test22");
+        board1.setContent(";aefawfafawf222222222");
+        board1.addComment(comment1);
+
+        boardRepository.saveAll(Arrays.asList(board, board1));
+
         print();
     }
 

@@ -30,7 +30,7 @@ public class Comment {
 
     public void setBoard(Board board){
         if(this.board != null){
-            board.removeComment(this);
+            this.board.removeComment(this);
         }
         this.board = board;
     }

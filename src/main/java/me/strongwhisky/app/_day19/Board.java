@@ -70,8 +70,8 @@ public class Board {
     public void addComment(Comment comment) {
         if (!this.comments.contains(comment)) {
             this.comments.add(comment);
+            comment.setBoard(this);
         }
-        comment.setBoard(this);
     }
 
     public void removeComment(Comment comment) {
