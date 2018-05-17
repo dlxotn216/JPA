@@ -1,4 +1,4 @@
-package me.strongwhisky.app._day19;
+package me.strongwhisky.app._day20;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,9 @@ import javax.persistence.*;
 @Table
 @Getter
 @Setter
-@EntityListeners(value = {CommentListener.class})   //엔티티 리스너 등록 방법 2
+@NamedEntityGraph(name = "Comment.writer", attributeNodes = {
+        @NamedAttributeNode(value = "writer")
+})
 public class Comment {
 
     @Id
@@ -24,9 +26,13 @@ public class Comment {
 
     private int seqNo;
 
-    @ManyToOne
-    @JoinColumn(name = "board")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BOARD_ID")
     private Board board;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CUSTOMER_ID")
+    private Customer writer;
 
     public void setBoard(Board board){
         if(this.board != null){

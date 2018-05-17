@@ -1,4 +1,4 @@
-package me.strongwhisky.app._day19;
+package me.strongwhisky.app._day20;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -12,9 +12,15 @@ import org.springframework.stereotype.Component;
 public class DayRunner implements ApplicationRunner {
 
     @Autowired
-    private TestService testService;
+    private ByUsingEntityMangerTest byUsingEntityMangerTest;
+
+    @Autowired
+    private ByUsingJPQLTest byUsingJPQLTest;
 
     public void run(ApplicationArguments args) throws Exception {
-       testService.run();
+       byUsingEntityMangerTest.run();
+       byUsingEntityMangerTest.pritnByUsingEntityGraph();
+
+       byUsingJPQLTest.pritnByUsingEntityGraph();
     }
 }
