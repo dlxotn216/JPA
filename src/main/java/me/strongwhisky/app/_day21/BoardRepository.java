@@ -1,4 +1,4 @@
-package me.strongwhisky.app._day20;
+package me.strongwhisky.app._day21;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
