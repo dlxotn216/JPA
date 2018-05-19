@@ -1,6 +1,6 @@
-package me.strongwhisky.app.test.domain.repository;
+package me.strongwhisky.app.day22.domain.repository;
 
-import me.strongwhisky.app.test.domain.model.UserRole;
+import me.strongwhisky.app.day22.domain.model.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

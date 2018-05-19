@@ -1,7 +1,7 @@
-package me.strongwhisky.app.test;
+package me.strongwhisky.app.day22;
 
-import me.strongwhisky.app.test.service.FindService;
-import me.strongwhisky.app.test.service.InitService;
+import me.strongwhisky.app.day22.service.FindService;
+import me.strongwhisky.app.day22.service.InitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -22,5 +22,8 @@ public class TestRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         initService.init();
         findService.findUserWithAll();
+        findService.EntityGraphByAttributePathTest();
+        findService.userSpecTest();
+        findService.fetchAllgraphByQueryDslTest();
     }
 }

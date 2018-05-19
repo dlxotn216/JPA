@@ -1,7 +1,12 @@
-package me.strongwhisky.app.test.service;
+package me.strongwhisky.app.day22.service;
 
-import me.strongwhisky.app.test.domain.model.User;
-import me.strongwhisky.app.test.domain.model.UserRole;
+import me.strongwhisky.app.day22.domain.model.SearchCriteria;
+import me.strongwhisky.app.day22.domain.model.User;
+import me.strongwhisky.app.day22.domain.model.UserRole;
+import me.strongwhisky.app.day22.domain.repository.UserRepository;
+import me.strongwhisky.app.day22.domain.spec.UserSpec;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityGraph;
@@ -18,6 +23,9 @@ import java.util.Map;
 public class FindService {
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public void findUserWithAll(){
         System.out.println("========================start of find service =========================");
@@ -50,9 +58,9 @@ public class FindService {
 
     ========================start of find service =========================
     2018-05-19 03:05:36.991 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_1_0_, user0_.email as email2_1_0_, user0_.name as name3_1_0_, user0_.user_id as user_id4_1_0_, userroles1_.user_key as user_key3_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_, role2_.role_key as role_key1_12_3_, role2_.description as descript2_12_3_, role2_.name as name3_12_3_ from app_user user0_ left outer join user_role userroles1_ on user0_.user_key=userroles1_.user_key left outer join role role2_ on userroles1_.role_key=role2_.role_key where user0_.user_key=?
-    me.strongwhisky.app.test.domain.model.User@392f0816
+    me.strongwhisky.app.day22.domain.model.User@392f0816
     2018-05-19 03:05:37.005 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_1_0_, user0_.email as email2_1_0_, user0_.name as name3_1_0_, user0_.user_id as user_id4_1_0_, userroles1_.user_key as user_key3_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_, role2_.role_key as role_key1_12_3_, role2_.description as descript2_12_3_, role2_.name as name3_12_3_ from app_user user0_ left outer join user_role userroles1_ on user0_.user_key=userroles1_.user_key left outer join role role2_ on userroles1_.role_key=role2_.role_key where user0_.user_key=?
-    me.strongwhisky.app.test.domain.model.User@5ada3d63
+    me.strongwhisky.app.day22.domain.model.User@5ada3d63
     2018-05-19 03:05:40.578 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_1_0_, user0_.email as email2_1_0_, user0_.name as name3_1_0_, user0_.user_id as user_id4_1_0_, userroles1_.user_key as user_key3_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_ from app_user user0_ left outer join user_role userroles1_ on user0_.user_key=userroles1_.user_key where user0_.user_key=?
     2018-05-19 03:05:40.585 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select role0_.role_key as role_key1_12_0_, role0_.description as descript2_12_0_, role0_.name as name3_12_0_, userroles1_.role_key as role_key2_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_ from role role0_ left outer join user_role userroles1_ on role0_.role_key=userroles1_.role_key where role0_.role_key=?
     2018-05-19 03:05:40.590 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_1_0_, user0_.email as email2_1_0_, user0_.name as name3_1_0_, user0_.user_id as user_id4_1_0_, userroles1_.user_key as user_key3_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_ from app_user user0_ left outer join user_role userroles1_ on user0_.user_key=userroles1_.user_key where user0_.user_key=?
@@ -60,9 +68,67 @@ public class FindService {
     2018-05-19 03:05:40.597 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select role0_.role_key as role_key1_12_0_, role0_.description as descript2_12_0_, role0_.name as name3_12_0_, userroles1_.role_key as role_key2_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_ from role role0_ left outer join user_role userroles1_ on role0_.role_key=userroles1_.role_key where role0_.role_key=?
     2018-05-19 03:05:40.600 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_1_0_, user0_.email as email2_1_0_, user0_.name as name3_1_0_, user0_.user_id as user_id4_1_0_, userroles1_.user_key as user_key3_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_ from app_user user0_ left outer join user_role userroles1_ on user0_.user_key=userroles1_.user_key where user0_.user_key=?
     2018-05-19 03:05:40.603 DEBUG 1824 --- [  restartedMain] org.hibernate.SQL                        : select role0_.role_key as role_key1_12_0_, role0_.description as descript2_12_0_, role0_.name as name3_12_0_, userroles1_.role_key as role_key2_14_1_, userroles1_.user_role_key as user_rol1_14_1_, userroles1_.user_role_key as user_rol1_14_2_, userroles1_.role_key as role_key2_14_2_, userroles1_.user_key as user_key3_14_2_ from role role0_ left outer join user_role userroles1_ on role0_.role_key=userroles1_.role_key where role0_.role_key=?
-    me.strongwhisky.app.test.domain.model.User@56398a59
+    me.strongwhisky.app.day22.domain.model.User@56398a59
     2018-05-19 03:05:42.485 DEBUG 1824 --- [  restartedMain] o.s.boot.devtools.restart.Restarter      : Creating new Restar
 
 
      */
+
+    public void EntityGraphByAttributePathTest(){
+        System.out.println("========================start of find EntityGraphByAttributePathTest =========================");
+        userRepository.findOneWithDeepGraphByUserKey(1L)
+        .ifPresent((user->{
+            System.out.println(user);
+        }));
+    }
+
+    public void userSpecTest(){
+        System.out.println("========================start of find userSpecTest =========================");
+        UserSpec spec =
+                new UserSpec(new SearchCriteria("name", ":", "LeeTaeSu"));
+
+        System.out.println("========================(1)=========================");
+        userRepository.findAll(spec)
+        .forEach(user->{
+            System.out.println(user.getUserId()+"::"+user.getName());
+        });
+
+        System.out.println("========================(2)=========================");
+        userRepository.findAll(
+                Specification.where(
+                        new UserSpec(new SearchCriteria("name", ":", "LeeTaeSu"))
+                ).and(
+                        new UserSpec(new SearchCriteria("email", "!=", "LeeTaeSu"))
+                ).and(
+                        new UserSpec(new SearchCriteria("age", ">=", "20"))
+                )).forEach(item->{
+            System.out.println(item.getUserId()+"::"+item.getName());
+        });
+
+        System.out.println("========================(3)=========================");
+        userRepository.findAll(
+                Specification.where(
+                        new UserSpec(new SearchCriteria("name", ":", "LeeTaeSu"))
+                ).and(
+                        new UserSpec(new SearchCriteria("email", "!=", "LeeTaeSu"))
+                )).forEach(item->{
+            System.out.println(item.getUserId()+"::"+item.getName());
+        });
+    }
+
+    public void fetchAllgraphByQueryDslTest(){
+        System.out.println("========================(4)=========================");
+
+        userRepository.findAllWithUserAllGraph(null)
+                .forEach(item -> {
+                    System.out.println("-----------"+item.getName() + ":" + item.getUserId()+"=========================");
+                    item.getUserRoles().forEach(roleItem -> {
+                        System.out.println(roleItem.getRole().getName());
+                        roleItem.getRole().getRolePermissions().forEach(permissionItem -> {
+                            System.out.print("("+permissionItem.getPermission().getPermissionId() + "::" + permissionItem.getPermission().getDescription()+"), ");
+                        });
+                        System.out.println();
+                    });
+                });
+    }
 }

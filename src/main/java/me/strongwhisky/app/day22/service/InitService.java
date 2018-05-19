@@ -1,9 +1,9 @@
-package me.strongwhisky.app.test.service;
+package me.strongwhisky.app.day22.service;
 
-import me.strongwhisky.app.test.domain.model.Permission;
-import me.strongwhisky.app.test.domain.model.Role;
-import me.strongwhisky.app.test.domain.model.User;
-import me.strongwhisky.app.test.domain.repository.*;
+import me.strongwhisky.app.day22.domain.model.Permission;
+import me.strongwhisky.app.day22.domain.model.Role;
+import me.strongwhisky.app.day22.domain.model.User;
+import me.strongwhisky.app.day22.domain.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -57,12 +57,12 @@ public class InitService {
 
         roleRepository.saveAll(Arrays.asList(role1, role2, role3));
 
-        User user1 = User.builder().userId("taesu@test.com").name("LeeTaeSu").email("taesu@test.com").build();
+        User user1 = User.builder().userId("taesu@day22.com").name("LeeTaeSu").email("taesu@day22.com").build();
         user1.addUserRole(role1);
         user1.addUserRole(role2);
         user1.addUserRole(role3);
 
-        User user2 = User.builder().userId("test123@test.com").name("test123").email("test123@test.com").build();
+        User user2 = User.builder().userId("test123@day22.com").name("test123").email("test123@day22.com").build();
         user2.addUserRole(role1);
 
         User user3 = User.builder().userId("NoMad").name("MadPeople").email("nomad@te213st.com").build();

@@ -1,4 +1,4 @@
-package me.strongwhisky.app.test.domain.model;
+package me.strongwhisky.app.day22.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,6 +45,8 @@ public class User {
     private String name;
 
     private String email;
+
+    private Integer age;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @Builder.Default        //Lombok의 Builder 사용 시 즉시 초기화 구문이 항상 null임 주의 (Builder.Default annotation 사용)

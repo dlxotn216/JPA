@@ -1,4 +1,4 @@
-package me.strongwhisky.app.test.domain.model;
+package me.strongwhisky.app.day22.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
