@@ -1,9 +1,6 @@
-package me.strongwhisky.app.day24.domain.model;
+package me.strongwhisky.app.day25.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "APP_USER")
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,18 +29,17 @@ public class User {
 
     private Integer age;
 
-    //fetch = EAGER
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GROUP_KEY")
     private Group group;
 
-    public void setGroup(Group group){
-        if(this.group != null && !this.group.equals(group)){
+    public void setGroup(Group group) {
+        if (this.group != null && !this.group.equals(group)) {
             this.group.removeUser(this);
         }
 
         this.group = group;
-        if(this.group != null){
+        if (this.group != null) {
             this.group.addUser(this);
         }
     }
