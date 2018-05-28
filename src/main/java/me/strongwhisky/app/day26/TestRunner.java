@@ -1,11 +1,10 @@
-package me.strongwhisky.app.day25;
+package me.strongwhisky.app.day26;
 
-import me.strongwhisky.app.day25.domain.model.User;
-import me.strongwhisky.app.day25.domain.repository.UserRepository;
-import me.strongwhisky.app.day25.service.InitService;
-import me.strongwhisky.app.day25.service.LazyWriteTestService;
-import me.strongwhisky.app.day25.service.TestService;
-import me.strongwhisky.app.day25.service.TestServiceImpl;
+import me.strongwhisky.app.day26.domain.model.User;
+import me.strongwhisky.app.day26.domain.repository.UserRepository;
+import me.strongwhisky.app.day26.service.InitService;
+import me.strongwhisky.app.day26.service.LazyWriteTestService;
+import me.strongwhisky.app.day26.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

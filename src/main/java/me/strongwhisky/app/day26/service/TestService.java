@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day25.service;
+package me.strongwhisky.app.day26.service;
 
 /**
  * Created by taesu on 2018-05-26.
