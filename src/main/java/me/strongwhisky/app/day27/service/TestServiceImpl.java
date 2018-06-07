@@ -94,10 +94,7 @@ public class TestServiceImpl implements TestService {
 
     /*
     ================================changeUsersTest+==================================
-    2018-06-07 21:58:56.803 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
-    2018-06-07 21:58:56.803 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
-    2018-06-07 21:58:56.828  INFO 1204 --- [  restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-    2018-06-07 21:58:56.957 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_2_, user0_.age as age2_2_, user0_.email as email3_2_, user0_.group_key as group_ke6_2_, user0_.name as name4_2_, user0_.user_id as user_id5_2_ from app_user user0_ where user0_.user_key in (? , ? , ?)
+    A collection with cascade="all-delete-orphan" was no longer referenced by the owning entity 에러 발생
      */
     @Override
     @Transactional
@@ -106,21 +103,27 @@ public class TestServiceImpl implements TestService {
         Group group = groupRepository.findById(1L).orElseThrow(IllegalAccessError::new);
 
         List<User> users = userRepository.findAllById(Arrays.asList(4L, 5L, 6L));
-        group.changeUsers(users);
+//        group.changeUsers(users);
 
     }
 
     /*
     ================================clearAndChangeUsersTest+==================================
-    2018-06-07 21:58:56.965 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
-    2018-06-07 21:58:56.966 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
-    2018-06-07 21:58:56.968 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_2_, user0_.age as age2_2_, user0_.email as email3_2_, user0_.group_key as group_ke6_2_, user0_.name as name4_2_, user0_.user_id as user_id5_2_ from app_user user0_ where user0_.user_key in (? , ? , ?)
+    2018-06-07 22:32:28.356 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
+    2018-06-07 22:32:28.358 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
+    2018-06-07 22:32:30.731 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_2_, user0_.age as age2_2_, user0_.email as email3_2_, user0_.group_key as group_ke6_2_, user0_.name as name4_2_, user0_.user_id as user_id5_2_ from app_user user0_ where user0_.user_key in (? , ? , ?)
+    2018-06-07 22:32:33.700 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.704 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.704 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.705 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.705 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.706 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
      */
     @Override
     @Transactional
     public void clearAndChangeUsersTest(){
         System.out.println("================================clearAndChangeUsersTest+==================================");
-        Group group = groupRepository.findById(2L).orElseThrow(IllegalAccessError::new);
+        Group group = groupRepository.findById(1L).orElseThrow(IllegalAccessError::new);
 
         List<User> users = userRepository.findAllById(Arrays.asList(1L, 2L, 3L));
         group.claerUsersAndSetUsers(users);
@@ -128,22 +131,21 @@ public class TestServiceImpl implements TestService {
 
     /*
     ================================changeBulk+==================================
-    2018-06-07 21:58:56.969 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
-    2018-06-07 21:58:56.970 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
-    2018-06-07 21:58:56.983 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_2_, user0_.age as age2_2_, user0_.email as email3_2_, user0_.group_key as group_ke6_2_, user0_.name as name4_2_, user0_.user_id as user_id5_2_ from app_user user0_ left outer join app_group group1_ on user0_.group_key=group1_.group_key where group1_.group_key=?
-    2018-06-07 21:58:58.754 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_2_, user0_.age as age2_2_, user0_.email as email3_2_, user0_.group_key as group_ke6_2_, user0_.name as name4_2_, user0_.user_id as user_id5_2_ from app_user user0_ where user0_.user_key in (? , ? , ?)
-    2018-06-07 21:59:04.263 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
-    2018-06-07 21:59:04.268 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
-    2018-06-07 21:59:05.532 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.534 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.535 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.536 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.537 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.538 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.539 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.540 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.540 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
-    2018-06-07 21:59:05.541 DEBUG 1204 --- [  restartedMain] org.hibernate.SQL                        : update app_user set age=?, email=?, group_key=?, name=?, user_id=? where user_key=?
+    2018-06-07 22:32:33.707 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
+    2018-06-07 22:32:33.708 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
+    2018-06-07 22:32:33.712 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select user0_.user_key as user_key1_2_, user0_.age as age2_2_, user0_.email as email3_2_, user0_.group_key as group_ke6_2_, user0_.name as name4_2_, user0_.user_id as user_id5_2_ from app_user user0_ where user0_.user_key in (? , ? , ?)
+    2018-06-07 22:32:33.714 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select group0_.group_key as group_ke1_1_0_, group0_.description as descript2_1_0_, group0_.group_name as group_na3_1_0_ from app_group group0_ where group0_.group_key=?
+    2018-06-07 22:32:33.715 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : select users0_.group_key as group_ke6_2_0_, users0_.user_key as user_key1_2_0_, users0_.user_key as user_key1_2_1_, users0_.age as age2_2_1_, users0_.email as email3_2_1_, users0_.group_key as group_ke6_2_1_, users0_.name as name4_2_1_, users0_.user_id as user_id5_2_1_ from app_user users0_ where users0_.group_key=?
+    2018-06-07 22:32:33.718 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.719 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.719 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.720 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.720 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.720 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.721 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.721 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.722 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
+    2018-06-07 22:32:33.722 DEBUG 6808 --- [  restartedMain] org.hibernate.SQL                        : delete from app_user where user_key=?
      */
     @Override
     @Transactional

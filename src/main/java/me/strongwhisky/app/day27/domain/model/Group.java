@@ -40,7 +40,7 @@ public class Group {
      즉시 로딩이라면 Group 조회 시 Sub Query 실행
      */
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<User> users = new ArrayList<>();
 
     public void addUser(User user) {
@@ -54,22 +54,19 @@ public class Group {
         this.users.remove(user);
     }
 
+    //orphanRemoval = true 인 경우 아래와 같은 대입은 문제가 발생 함
     public void changeUsers(List<User> users){
         this.users = users;
     }
 
+    //clear 호출 시 모두삭제 됨
     public void claerUsersAndSetUsers(List<User> users){
         this.users.clear();
         this.users.addAll(users);
     }
 
-    /**
-     * User의 속성을 바꾸어주어야 Transaction 종료시 변경 사항이 반영 됨
-     * @param users
-     */
+    //clear 호출 시 모두 삭제 됨
     public void changeBulk(List<User> users){
-        //복사본을 사용하여 concurrentmodificationexception 피하는 것을 주의
-        new ArrayList<>(this.users).forEach(user-> user.setGroup(null));
         this.users.clear();
 
         this.users.addAll(users);
