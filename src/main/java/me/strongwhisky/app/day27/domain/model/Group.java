@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day26.domain.model;
+package me.strongwhisky.app.day27.domain.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,6 +6,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,5 +52,27 @@ public class Group {
 
     public void removeUser(User user) {
         this.users.remove(user);
+    }
+
+    public void changeUsers(List<User> users){
+        this.users = users;
+    }
+
+    public void claerUsersAndSetUsers(List<User> users){
+        this.users.clear();
+        this.users.addAll(users);
+    }
+
+    /**
+     * User의 속성을 바꾸어주어야 Transaction 종료시 변경 사항이 반영 됨
+     * @param users
+     */
+    public void changeBulk(List<User> users){
+        //복사본을 사용하여 concurrentmodificationexception 피하는 것을 주의
+        new ArrayList<>(this.users).forEach(user-> user.setGroup(null));
+        this.users.clear();
+
+        this.users.addAll(users);
+        this.users.forEach(user-> user.setGroup(this));
     }
 }

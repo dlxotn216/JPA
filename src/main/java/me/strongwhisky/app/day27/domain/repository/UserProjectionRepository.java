@@ -1,8 +1,8 @@
-package me.strongwhisky.app.day26.domain.repository;
+package me.strongwhisky.app.day27.domain.repository;
 
-import me.strongwhisky.app.day26.domain.model.User;
-import me.strongwhisky.app.day26.domain.model.UserForDropdown;
-import me.strongwhisky.app.day26.domain.model.UserForDropdownAsClass;
+import me.strongwhisky.app.day27.domain.model.User;
+import me.strongwhisky.app.day27.domain.model.UserForDropdown;
+import me.strongwhisky.app.day27.domain.model.UserForDropdownAsClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

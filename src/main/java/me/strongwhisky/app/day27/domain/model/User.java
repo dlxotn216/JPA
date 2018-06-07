@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day26.domain.model;
+package me.strongwhisky.app.day27.domain.model;
 
 import lombok.*;
 
@@ -42,6 +42,16 @@ public class User {
         if (this.group != null) {
             this.group.addUser(this);
         }
+    }
+
+    public static User createUser(String userId, int age) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setName(userId);
+        user.setEmail(userId + "@test.com");
+        user.setAge(age);
+
+        return user;
     }
 
 }

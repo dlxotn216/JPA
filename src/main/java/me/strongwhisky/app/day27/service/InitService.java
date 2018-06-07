@@ -1,9 +1,9 @@
-package me.strongwhisky.app.day26.service;
+package me.strongwhisky.app.day27.service;
 
-import me.strongwhisky.app.day26.domain.model.Group;
-import me.strongwhisky.app.day26.domain.model.User;
-import me.strongwhisky.app.day26.domain.repository.GroupRepository;
-import me.strongwhisky.app.day26.domain.repository.UserRepository;
+import me.strongwhisky.app.day27.domain.model.Group;
+import me.strongwhisky.app.day27.domain.model.User;
+import me.strongwhisky.app.day27.domain.repository.GroupRepository;
+import me.strongwhisky.app.day27.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
