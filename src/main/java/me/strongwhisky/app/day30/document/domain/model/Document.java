@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day29.document.domain.model;
+package me.strongwhisky.app.day30.document.domain.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +29,7 @@ public class Document {
 	private String name;
 	
 	private String description;
+
 	
 	@OneToMany(mappedBy = "document", cascade = CascadeType.ALL, orphanRemoval = true)
 	@OrderBy("version DESC, sequence DESC")
@@ -105,5 +106,14 @@ public class Document {
 		return this.documentTasks.stream()
 				.filter(task -> task.getTaskStatus() == TaskStatus.WAITING)
 				.min(DocumentTask::compareByOrder);
+	}
+
+	@Override
+	public String toString() {
+		return "Document{" +
+				"documentKey='" + documentKey + '\'' +
+				"name='" + name + '\'' +
+				", description='" + description + '\'' +
+				'}';
 	}
 }

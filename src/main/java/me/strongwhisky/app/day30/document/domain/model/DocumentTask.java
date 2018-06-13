@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day29.document.domain.model;
+package me.strongwhisky.app.day30.document.domain.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,9 +27,11 @@ public class DocumentTask {
 	private String name;
 	
 	private String description;
-	
+
+	@Column(name = "SEQUENCE")
 	private Integer order;
-	
+
+	@Enumerated(value = EnumType.STRING)
 	private TaskStatus taskStatus;
 	
 	private Boolean autoStart;

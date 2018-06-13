@@ -1,4 +1,4 @@
-package me.strongwhisky.app.day29.document.domain.model;
+package me.strongwhisky.app.day30.document.domain.model;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

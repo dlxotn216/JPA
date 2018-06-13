@@ -1,6 +1,6 @@
-package me.strongwhisky.app.day29.document.domain.repository;
+package me.strongwhisky.app.day30.document.domain.repository;
 
-import me.strongwhisky.app.day29.document.domain.model.Document;
+import me.strongwhisky.app.day30.document.domain.model.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
